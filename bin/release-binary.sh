@@ -10,7 +10,7 @@ echo "Mongo URL: $MONGO_URL"
 
 if [[ -z "$MONGO_USERNAME" || -z "$MONGO_PASSWORD" ]]; then
 	echo "No mongo credentials so doing nothing..."
-	return 1
+	exit 1
 fi
 
 if [[ "$PARAM_2" == 'stable' ]]; then
@@ -20,7 +20,7 @@ elif [[ "$PARAM_2" == 'latest' ]]; then
 	FIELD="betaCliVersion"
 	VERSION="latest+$PARAM_1"
 else
-	return 1
+	exit 1
 fi
 
 echo "Release: $FIELD as $VERSION"
